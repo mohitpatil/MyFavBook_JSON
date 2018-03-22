@@ -63,19 +63,19 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
         /*$scope.bId = document.getElementById('bId').innerHTML;
         console.log('bookId : ', $scope.bId);*/
 
-        if ($scope.favList.length === 0) {
-            $scope.favList.push($scope.searchResult[$index]);
-        } else {
-            for (var x = 0 ; x < $scope.favList.length ; x++) {
-                if ($scope.favList[x].Title === $scope.favList[$index].Title) {
-                    console.log ('Already in favourite');
-                } else {
-                    $scope.favList.push($scope.searchResult[$index]);
-                }
-            }
-        }
+        // if ($scope.favList.length === 0) {
+        //     $scope.favList.push($scope.searchResult[$index]);
+        // } else {
+        //     for (var x = 0 ; x < $scope.favList.length ; x++) {
+        //         if ($scope.favList[x].Title === $scope.favList[$index].Title) {
+        //             console.log ('Already in favourite');
+        //         } else {
+        //             $scope.favList.push($scope.searchResult[$index]);
+        //         }
+        //     }
+        // }
 
-        //$scope.favList.push($scope.searchResult[$index]);
+        $scope.favList.push($scope.searchResult[$index]);
         console.log('$scope.favList : ', $scope.favList);
     };
 
