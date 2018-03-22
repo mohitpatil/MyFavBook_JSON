@@ -37,7 +37,7 @@
         <div class="container search-bar">
             <form>
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <input type="text" id="searchItem" class="search-box" placeholder="Search.." ng-model="search" ng-pattern="" ng-required/>
+                <input type="text" id="searchItem" class="search-box" placeholder="Search.." ng-model="search"/>
                 <button type="submit" ng-click="getBooks(search)" class="search-button btn btn-danger"><i ng-click="hide_me=true" class="fas fa-search"></i></button>
             </div>
             </form>
@@ -61,7 +61,7 @@
                 <h5 class="card-title text-center">{{book.Title}}</h5>
                 <p class="card-text text-center" id="bId">ID : {{book.id}}</p>
                 <p class="card-text text-center">Author : {{book.author}}</p>{{bookId}}
-                <p class="card-text text-center">Gener : {{book.genre_s}}</p>
+                <p class="card-text text-center">Genre : {{book.genre_s}}</p>
                 <p class="card-text text-center">Price : {{book.price | currency}}</p>
                 <a class="btn btn-info" ng-click="addToFav($index)">Add to Favourite</a>
             </div>
@@ -78,7 +78,7 @@
 
 
     <!--Favourite Template-->
-    <div class="jumbotron" ng-if="noResult">
+    <div class="jumbotron" ng-show="noResult">
         <h1>My Favourite Books</h1>
         <div id="btnContainer">
             <button class="btn" ng-click="listView()"><i class="fa fa-bars"></i> List</button>
@@ -92,7 +92,7 @@
                     <h5 class="card-title text-center">{{favBook.Title}}</h5>
                     <p class="card-text text-center">ID : {{favBook.id}}</p>
                     <p class="card-text text-center">Author : {{favBook.author}}</p>
-                    <p class="card-text text-center">Gener : {{favBook.genre_s}}</p>
+                    <p class="card-text text-center">Genre : {{favBook.genre_s}}</p>
                     <p class="card-text text-center">Price : {{favBook.price | currency}}</p>
                     <a class="btn btn-danger btn-md" ng-click="removeFav(favList, $index)">Remove From Favourite</a>
                 </div>

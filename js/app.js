@@ -3,6 +3,7 @@ var myBookApp = angular.module('myApp',[]);
 myBookApp.controller('myBookCtrl', function($scope, $http) {
 
     $scope.searchResult = [];
+    $scope.storedResult = []
     $scope.noResult = false;
     var myWelcome ;
 
@@ -10,7 +11,7 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
 
         document.getElementById('searchItem').value = '';
 
-        //var myWelcome ;
+        var myWelcome ;
 
         $http({
             method : "GET",
@@ -24,7 +25,7 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
             for (var i = 0 ; i < myWelcome.books.length ;i++) {
                 if(myWelcome.books[i].Title === search) {
 
-                    if ($scope.searchResult.length === 0) {
+                    /*if ($scope.searchResult.length === 0) {
                         $scope.searchResult.push(myWelcome.books[i]);
                         console.log ('Book List if', $scope.searchResult);
                     } else {
@@ -39,10 +40,9 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
                                 $scope.searchResult.push(myWelcome.books[i]);
                             }
                         }
-                    }
+                    }*/
 
-
-                    //$scope.searchResult.push(myWelcome.books[i]);
+                    $scope.searchResult.push(myWelcome.books[i]);
                     //console.log ('Found', $scope.searchResult);
                 } else {
                     //console.log ('Not Found');
@@ -50,7 +50,7 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
 
                 }
             }
-        }, function myError(response) {
+            }, function myError(response) {
             var errorText = response.statusText;
             //console.log('myWelcome Bad Response', errorText);
         });
@@ -63,17 +63,17 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
         /*$scope.bId = document.getElementById('bId').innerHTML;
         console.log('bookId : ', $scope.bId);*/
 
-        // if ($scope.favList.length === 0) {
-        //     $scope.favList.push($scope.searchResult[$index]);
-        // } else {
-        //     for (var x = 0 ; x < $scope.favList.length ; x++) {
-        //         if ($scope.favList[x].Title === $scope.favList[$index].Title) {
-        //             console.log ('Already in favourite');
-        //         } else {
-        //             $scope.favList.push($scope.searchResult[$index]);
-        //         }
-        //     }
-        // }
+        /* if ($scope.favList.length === 0) {
+             $scope.favList.push($scope.searchResult[$index]);
+         } else {
+             for (var x = 0 ; x < $scope.favList.length ; x++) {
+                 if ($scope.favList[x].Title === $scope.favList[$index].Title) {
+                     console.log ('Already in favourite');
+                 } else {
+                     $scope.favList.push($scope.searchResult[$index]);
+                 }
+             }
+         }*/
 
         $scope.favList.push($scope.searchResult[$index]);
         console.log('$scope.favList : ', $scope.favList);
@@ -100,21 +100,21 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
     var elements = document.getElementsByClassName("column");
     console.log("elements", elements);
     // Declare a loop variable
-        var i;
+    var i;
 
     // List View
-         $scope.listView = function() {
-            for (i = 0; i < elements.length; i++) {
-                elements[i].style.width = "100%";
-            }
-        };
+    $scope.listView = function() {
+        for (i = 0; i < elements.length; i++) {
+            elements[i].style.width = "100%";
+        }
+    };
 
     // Grid View
-        $scope.gridView = function() {
-            for (i = 0; i < elements.length; i++) {
-                elements[i].style.width = "50%";
-            }
-        };
+    $scope.gridView = function() {
+        for (i = 0; i < elements.length; i++) {
+            elements[i].style.width = "50%";
+        }
+    };
 });
 
 
