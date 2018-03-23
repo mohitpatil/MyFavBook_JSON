@@ -3,14 +3,16 @@ var myBookApp = angular.module('myApp',[]);
 myBookApp.controller('myBookCtrl', function($scope, $http) {
 
     $scope.searchResult = [];
-    $scope.storedResult = []
-    $scope.noResult = false;
-    var myWelcome ;
+    $scope.favList = [];
+    $scope.favShow = false;
+    $scope.noResultFound = true;
 
     $scope.getBooks = function(search) {
 
+        $scope.favShow = true;
+        $scope.noResultFound = true;
+        $scope.searchResult = [];       // Emptied Search Array for 2nd Search.
         document.getElementById('searchItem').value = '';
-
         var myWelcome ;
 
         $http({
@@ -18,64 +20,54 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
             //url : "https://www.booknomads.com/api/v0/isbn/9789000035526"
             url : "books.json"
         }).then(function mySuccess(response) {
-            myWelcome = (response.data);
 
+            myWelcome = (response.data);
             console.log('myWelcome Response', myWelcome, 'length : ', myWelcome.books.length);
 
             for (var i = 0 ; i < myWelcome.books.length ;i++) {
                 if(myWelcome.books[i].Title === search) {
-
-                    /*if ($scope.searchResult.length === 0) {
-                        $scope.searchResult.push(myWelcome.books[i]);
-                        console.log ('Book List if', $scope.searchResult);
-                    } else {
-
-                        for (var k = 0 ; k < $scope.searchResult.length; k++) {
-                            console.log ('Book List for', $scope.searchResult);
-                            if($scope.searchResult[k].Title === search) {
-                                console.log ('Book List inside if', $scope.searchResult);
-                                console.log('Book Already Exist');
-                            } else {
-                                console.log('Book Added after check');
-                                $scope.searchResult.push(myWelcome.books[i]);
-                            }
-                        }
-                    }*/
-
                     $scope.searchResult.push(myWelcome.books[i]);
-                    //console.log ('Found', $scope.searchResult);
                 } else {
-                    //console.log ('Not Found');
-                    $scope.noResult = true;
-
+                    console.log('Not Found');
                 }
             }
-            }, function myError(response) {
+
+            if($scope.searchResult.length >= 1) {
+                $scope.noResultFound = true;
+            } else {
+                $scope.noResultFound = false;
+            }
+        }, function myError(response) {
+            $scope.noResultFound = false;
             var errorText = response.statusText;
             //console.log('myWelcome Bad Response', errorText);
         });
     };
 
-    $scope.favList = [];
-    //$scope.bId = '';
     $scope.addToFav = function ($index) {
-        console.log('$index : ', $index);
+        console.log('$index : ', $index, 'FavList', $scope.favList, 'SearchResult', $scope.searchResult);
         /*$scope.bId = document.getElementById('bId').innerHTML;
         console.log('bookId : ', $scope.bId);*/
 
-        /* if ($scope.favList.length === 0) {
+        if ($scope.favList.length === 0) {
+            console.log('FavList 0', $scope.favList);
              $scope.favList.push($scope.searchResult[$index]);
-         } else {
-             for (var x = 0 ; x < $scope.favList.length ; x++) {
-                 if ($scope.favList[x].Title === $scope.favList[$index].Title) {
-                     console.log ('Already in favourite');
-                 } else {
-                     $scope.favList.push($scope.searchResult[$index]);
-                 }
-             }
-         }*/
+        } else {
+            console.log('FavList going');
+            for (var x = 0 ; x < $scope.favList.length ; x++) {
+                console.log('$scope.favList[$index].Title', $scope.favList[$index].Title);
+                console.log('$scope.favList[x].Title', $scope.favList[x].Title);
 
-        $scope.favList.push($scope.searchResult[$index]);
+                if ($scope.favList[x].Title === $scope.favList[$index].Title) {
+                    console.log ('Already in favourite' ,$scope.favList[x]);
+                } else {
+                    console.log ('Adding in favourite after ');
+                    $scope.favList.push($scope.searchResult[$index]);
+                }
+            }
+        }
+
+        //$scope.favList.push($scope.searchResult[$index]);
         console.log('$scope.favList : ', $scope.favList);
     };
 
@@ -90,83 +82,17 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
     };
 
 
-
-
-
-
-
-
-
-    var elements = document.getElementsByClassName("column");
-    console.log("elements", elements);
-    // Declare a loop variable
-    var i;
-
-    // List View
+    //List and Grid View
+    var elements = document.getElementsByClassName("view");
     $scope.listView = function() {
-        for (i = 0; i < elements.length; i++) {
+        for (var i = 0; i < elements.length; i++) {
             elements[i].style.width = "100%";
         }
     };
-
-    // Grid View
     $scope.gridView = function() {
-        for (i = 0; i < elements.length; i++) {
-            elements[i].style.width = "50%";
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.width = "40%";
         }
     };
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function getBooks() {
-    var searchItem, url, response, resp_error;
-    searchItem = document.getElementById('searchItem').value;
-
-    console.log(searchItem);
-    document.getElementById('searchItem').value = '';
-}*/
-
-
-/*
-function myFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("searchItem");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-
-        }
-    }
-}*/

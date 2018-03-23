@@ -128,3 +128,7 @@ body {
     color: white;
     border-radius: 15px;
 }
+
+.jumbotron {
+    margin-top: 10%;
+}
