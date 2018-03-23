@@ -23,7 +23,7 @@ body {
 
 .card {
     margin: 40px;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .delete-cart {
@@ -42,7 +42,7 @@ body {
     background: white;
     border: none;
     outline: none;
-    /*margin-left: 200px;*/
+    min-width: 220px;
     letter-spacing: 1pt;
     color: black;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
@@ -67,6 +67,7 @@ body {
     background: rgba(0,0,0,0.3);
     font-size: 17px;
     border: none;
+    min-width: 50px;
     cursor: pointer;
     padding: 10px 10px 10px 8px;
     width: 100px;
@@ -74,39 +75,17 @@ body {
     float: left;
 }
 
-#myUL {
-    list-style-type: none;
-}
-
-#myUL li a {
-    border: 1px solid #ddd;
-    margin-top: -1px; /* Prevent double borders */
-    background-color: transparent;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block
-}
-
-#myUL li a:hover:not(.header) {
-    background-color: #eee;
-}
-
-/* Create two equal columns that floats next to each other */
 .column {
     float: left;
     width: 50%;
     padding: 10px;
 }
 
-/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
-
 
 .type-wrap {
     text-align: center;
@@ -125,14 +104,6 @@ body {
 .jumbotron {
     margin-top: 10%;
 }
-
-/*
-@media (min-width: 992px) {
-    .search-box {
-        margin-left: 100px;
-    }
-}
-*/
 
 @media (min-width: 768px) {
     .search-box {

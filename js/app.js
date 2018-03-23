@@ -81,7 +81,7 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
     };
     $scope.gridView = function() {
         for (var i = 0; i < elements.length; i++) {
-            elements[i].style.width = "35%";
+            elements[i].style.width = "21rem";
         }
     };
 
