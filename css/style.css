@@ -62,7 +62,7 @@ body {
 }
 
 .search-button {
-    /*margin-top: 6px;*/
+    margin-top: 6px;
     margin-left: 16px;
     background: rgba(0,0,0,0.3);
     font-size: 17px;
@@ -72,13 +72,6 @@ body {
     width: 100px;
     border-radius: 14px;
     float: left;
-}
-
-.fa-search:before {
-    padding: 10px;
-    padding-left: 41px;
-    padding-right: 41px;
-    margin-left: -12px;
 }
 
 #myUL {
@@ -139,10 +132,11 @@ body {
         margin-left: 100px;
     }
 }
+*/
 
 @media (min-width: 768px) {
     .search-box {
         margin-left: 50px;
     }
 }
-*/
+

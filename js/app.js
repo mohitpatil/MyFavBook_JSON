@@ -46,23 +46,30 @@ myBookApp.controller('myBookCtrl', function($scope, $http) {
 
     $scope.addToFav = function ($index) {
         console.log('$index : ', $index, 'FavList', $scope.favList, 'SearchResult', $scope.searchResult);
-        /*$scope.bId = document.getElementById('bId').innerHTML;
-        console.log('bookId : ', $scope.bId);*/
 
         if ($scope.favList.length === 0) {
-            console.log('FavList 0', $scope.favList);
+            //console.log('FavList 0', $scope.favList);
              $scope.favList.push($scope.searchResult[$index]);
         } else {
-            console.log('FavList going');
-            for (var x = 0 ; x < $scope.favList.length ; x++) {
-                console.log('$scope.favList[$index].Title', $scope.favList[$index].Title);
+            //console.log('FavList going');
+            /*for (var x = 0 ; x < $scope.favList.length ; x++) {
+                console.log('$scope.searchResult[$index].Title', $scope.searchResult[$index].Title);
                 console.log('$scope.favList[x].Title', $scope.favList[x].Title);
-
-                if ($scope.favList[x].Title === $scope.favList[$index].Title) {
-                    console.log ('Already in favourite' ,$scope.favList[x]);
+                var n = $scope.searchResult[$index].Title.localeCompare($scope.favList[x].Title);
+                if (!n) {
+                    console.log ('Already in favourite');
                 } else {
-                    console.log ('Adding in favourite after ');
                     $scope.favList.push($scope.searchResult[$index]);
+                    console.log ('Adding in favourite after ');
+                }
+            }*/
+            var x = 0;
+            while(x < $scope.favList.length) {
+                if (!$scope.searchResult[$index].Title.localeCompare($scope.favList[x].Title)) {
+                    break;
+                } else {
+                    $scope.favList.push($scope.searchResult[$index]);
+                    x++;
                 }
             }
         }
