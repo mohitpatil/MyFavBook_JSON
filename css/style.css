@@ -26,6 +26,10 @@ body {
     background-color: rgba(255,255,255,0.2);
 }
 
+.delete-cart {
+    padding: 10px;
+}
+
 .btn-info {
     margin-left: 50px;
 }
