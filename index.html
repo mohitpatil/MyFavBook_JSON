@@ -4,6 +4,7 @@
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My Favourite Books</title>
 
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -11,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="lib/typed.min.js" type="text/javascript"></script>
     <script src="assets/demos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
 
 
     <!-- JavaScript -->
@@ -18,20 +20,14 @@
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/solid.css" integrity="sha384-g2aKxiZcFezoVOq4MsjaxuBbSxSlXD/NRQ5GaPLfvCtcTLgP3fYZKKAGxCM/wMfe" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/fontawesome.css" integrity="sha384-xdTUmhbcetyLRVL4PAriRajOve+/5pjOiy5sJABnhXMcRMVc9HI9s2KmOCjjDK/P" crossorigin="anonymous">
-
-
-    <title>My Favourite Books</title>
 </head>
-<body ng-app="myApp" ng-controller="myBookCtrl" class="image-bg">
 
+<body ng-app="myApp" ng-controller="myBookCtrl" class="image-bg">
 <header>
- <div>
-     <img src="logo.png" class="logo">
- </div>   
+ <div><img src="logo.png" class="logo"></div>
 </header>
 
 <div class="container">
-
     <!--Search Template-->
     <div class="row">
         <div class="container search-bar">
@@ -59,7 +55,7 @@
 
     <!--Search Result's Template-->
     <div class="row">
-        <div ng-repeat ="book in searchResult" class="card" style="width: 18rem;">
+        <div ng-repeat ="book in searchResult track by $index" class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title text-center">{{book.Title}}</h5>
                 <p class="card-text text-center" id="bId">ID : {{book.id}}</p>
@@ -93,7 +89,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 

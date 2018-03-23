@@ -63,7 +63,7 @@
     {
       "id" : "978-1491949306",
       "cat" : ["book","paperback"],
-      "Title" : "Web Development with Node and Express",
+      "Title" : "Web Development with Node",
       "author" : "Ethan Brown",
       "series_t" : "O'Reilly Media",
       "sequence_i" : 2,
@@ -99,7 +99,7 @@
     {
       "id" : "978-1857995879",
       "cat" : ["book","paperback"],
-      "Title" : "Sophie's World : The Greek Philosophers",
+      "Title" : "Sophie's World",
       "author" : "Jostein Gaarder",
       "sequence_i" : 1292,
       "series_t" : "Sophie Paper",
@@ -111,7 +111,7 @@
     {
       "id" : "978-1933988177",
       "cat" : ["book","paperback"],
-      "Title" : "Lucene in Action, Second Edition",
+      "Title" : "Lucene in Action",
       "author" : "Michael McCandless",
       "sequence_i" : 1,
       "series_t" : "Opera House",
@@ -147,7 +147,7 @@
     {
       "id" : "978-0843182668",
       "cat" : ["book","paperback"],
-      "Title" : "Someecards Office Mad Libs",
+      "Title" : "Somecards Office",
       "author" : "Jay Perrone",
       "series_t" : "Mad Libs",
       "sequence_i" : 2,
