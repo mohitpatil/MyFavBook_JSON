@@ -36,16 +36,16 @@
     <div class="row">
         <div class="container search-bar">
             <form>
-            <div>
-                <input type="text" id="searchItem" class="search-box" placeholder="Search.." ng-model="search"/>
-                <button type="submit" ng-click="getBooks(search)" class="search-button btn btn-danger"><i ng-click="hide_me=true" class="fas fa-search"></i></button>
+            <div class="row">
+                <input type="text" id="searchItem" class="search-box offset-md-2 col-7 " placeholder="Search.." ng-model="search"/>
+                <button type="submit" ng-click="getBooks(search)" class="search-button btn btn-danger col-1"><i class="fas fa-search"></i></button>
             </div>
             </form>
         </div>
     </div>
 
     <!--Typed Text-->
-    <div class="type-wrap" ng-hide="hide_me">
+    <div class="type-wrap" ng-show="!favShow">
         <div id="typed-strings">
             <span>Welcome to <span style="color: orange">LogicX</span> BookWorld.</strong></span>
             <p>Search for your favourite Book's,</p>
@@ -56,7 +56,7 @@
 
     <!--No Result found Template-->
     <div class="alert alert-danger alert-dismissible fade show offset-md-3 col-6" role="alert" ng-hide="noResultFound">
-        <strong>Sorry!!</strong> No book's Found.
+        <strong>Sorry!</strong> No book Found.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
